@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Helmet from "react-helmet";
-import config from "../../../content/meta/config";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+import config from '../../../content/meta/config';
 
-const Seo = props => {
+const Seo = (props) => {
   const { data, facebook } = props;
   const postTitle = ((data || {}).frontmatter || {}).title;
   const postDescription = ((data || {}).frontmatter || {}).description;
@@ -19,7 +19,7 @@ const Seo = props => {
     <Helmet
       htmlAttributes={{
         lang: config.siteLanguage,
-        prefix: "og: http://ogp.me/ns#"
+        prefix: 'og: http://ogp.me/ns#',
       }}
     >
       {/* General tags */}
@@ -34,17 +34,14 @@ const Seo = props => {
       <meta property="fb:app_id" content={facebook.appId} />
       {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary" />
-      <meta
-        name="twitter:creator"
-        content={config.authorTwitterAccount ? config.authorTwitterAccount : ""}
-      />
+      <meta name="twitter:creator" content={config.authorTwitterAccount ? config.authorTwitterAccount : ''} />
     </Helmet>
   );
 };
 
 Seo.propTypes = {
   data: PropTypes.object,
-  facebook: PropTypes.object.isRequired
+  facebook: PropTypes.object.isRequired,
 };
 
 export default Seo;

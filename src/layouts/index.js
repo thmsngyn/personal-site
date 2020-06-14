@@ -1,36 +1,33 @@
-import React from "react";
-import injectSheet from "react-jss";
-import { MuiThemeProvider } from "@material-ui/core/styles";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import React from 'react';
+import injectSheet from 'react-jss';
+import { MuiThemeProvider } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-import withRoot from "../withRoot";
+import withRoot from '../withRoot';
 
-import theme from "../styles/theme";
-import globals from "../styles/globals";
+import theme from '../styles/theme';
+import globals from '../styles/globals';
 
-import { setFontSizeIncrease, setIsWideScreen } from "../state/store";
+import { setFontSizeIncrease, setIsWideScreen } from '../state/store';
 
-import asyncComponent from "../components/common/AsyncComponent/";
-import Loading from "../components/common/Loading/";
-import Navigator from "../components/Navigator/";
-import ActionsBar from "../components/ActionsBar/";
-import InfoBar from "../components/InfoBar/";
-import LayoutWrapper from "../components/LayoutWrapper/";
+import asyncComponent from '../components/common/AsyncComponent/';
+import Loading from '../components/common/Loading/';
+import Navigator from '../components/Navigator/';
+import ActionsBar from '../components/ActionsBar/';
+import InfoBar from '../components/InfoBar/';
+import LayoutWrapper from '../components/LayoutWrapper/';
 
-import { isWideScreen, timeoutThrottlerHandler } from "../utils/helpers";
+import { isWideScreen, timeoutThrottlerHandler } from '../utils/helpers';
 
 const InfoBox = asyncComponent(
   () =>
-    import("../components/InfoBox/")
+    import('../components/InfoBox/')
       .then(module => {
         return module;
       })
       .catch(error => {}),
-  <Loading
-    overrides={{ width: `${theme.info.sizes.width}px`, height: "100vh", right: "auto" }}
-    afterRight={true}
-  />
+  <Loading overrides={{ width: `${theme.info.sizes.width}px`, height: '100vh', right: 'auto' }} afterRight={true} />
 );
 
 class Layout extends React.Component {
@@ -39,14 +36,14 @@ class Layout extends React.Component {
 
   componentDidMount() {
     this.props.setIsWideScreen(isWideScreen());
-    if (typeof window !== "undefined") {
-      window.addEventListener("resize", this.resizeThrottler, false);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', this.resizeThrottler, false);
     }
   }
 
   componentWillMount() {
-    if (typeof localStorage !== "undefined") {
-      const inLocal = +localStorage.getItem("font-size-increase");
+    if (typeof localStorage !== 'undefined') {
+      const inLocal = +localStorage.getItem('font-size-increase');
 
       const inStore = this.props.fontSizeIncrease;
 
@@ -59,7 +56,15 @@ class Layout extends React.Component {
   }
 
   getCategories = () => {
-    this.categories = this.props.data.posts.edges.reduce((list, edge, i) => {
+    const {
+      data: {
+        posts: { edges = undefined }
+      }
+    } = this.props;
+    if (!edges) {
+      return;
+    }
+    this.categories = edges.reduce((list, edge, i) => {
       const category = edge.node.frontmatter.category;
       if (category && !~list.indexOf(category)) {
         return list.concat(edge.node.frontmatter.category);
@@ -70,7 +75,7 @@ class Layout extends React.Component {
   };
 
   resizeThrottler = () => {
-    return timeoutThrottlerHandler(this.timeouts, "resize", 500, this.resizeHandler);
+    return timeoutThrottlerHandler(this.timeouts, 'resize', 500, this.resizeHandler);
   };
 
   resizeHandler = () => {
@@ -79,7 +84,7 @@ class Layout extends React.Component {
 
   render() {
     const { children, data } = this.props;
-
+    console.log(this.props, data);
     // TODO: dynamic management of tabindexes for keybord navigation
     return (
       <LayoutWrapper>
@@ -115,10 +120,7 @@ const mapDispatchToProps = {
   setFontSizeIncrease
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withRoot(injectSheet(globals)(Layout)));
+export default connect(mapStateToProps, mapDispatchToProps)(withRoot(injectSheet(globals)(Layout)));
 
 //eslint-disable-next-line no-undef
 export const guery = graphql`

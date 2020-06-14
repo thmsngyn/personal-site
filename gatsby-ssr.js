@@ -1,13 +1,13 @@
-import { JssProvider } from "react-jss";
-import { Provider } from "react-redux";
-import { renderToString } from "react-dom/server";
-import React from "react";
+import { JssProvider } from 'react-jss';
+import { Provider } from 'react-redux';
+import { renderToString } from 'react-dom/server';
+import React from 'react';
 
-require("dotenv").config();
+require('dotenv').config();
 
-import getPageContext from "./src/getPageContext";
-import createStore from "./src/state/store";
-import theme from "./src/styles/theme";
+import getPageContext from './src/getPageContext';
+import createStore from './src/state/store';
+import theme from './src/styles/theme';
 
 exports.replaceRenderer = ({ bodyComponent, replaceBodyHTMLString, setHeadComponents }) => {
   const pageContext = getPageContext();
@@ -16,12 +16,9 @@ exports.replaceRenderer = ({ bodyComponent, replaceBodyHTMLString, setHeadCompon
   replaceBodyHTMLString(
     renderToString(
       <Provider store={store}>
-        <JssProvider
-          registry={pageContext.sheetsRegistry}
-          generateClassName={pageContext.generateClassName}
-        >
+        <JssProvider registry={pageContext.sheetsRegistry} generateClassName={pageContext.generateClassName}>
           {React.cloneElement(bodyComponent, {
-            pageContext
+            pageContext,
           })}
         </JssProvider>
       </Provider>
@@ -34,7 +31,7 @@ exports.replaceRenderer = ({ bodyComponent, replaceBodyHTMLString, setHeadCompon
       id="server-side-jss"
       key="server-side-jss"
       dangerouslySetInnerHTML={{ __html: pageContext.sheetsRegistry.toString() }}
-    />
+    />,
   ]);
 };
 
@@ -59,8 +56,8 @@ exports.onRenderBody = ({ setPostBodyComponents }) => {
             wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
             wf.async = true;
             s.parentNode.insertBefore(wf, s);
-        })(document);`
+        })(document);`,
       }}
-    />
+    />,
   ]);
 };
