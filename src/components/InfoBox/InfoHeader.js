@@ -95,9 +95,11 @@ const styles = theme => ({
     }
   },
   expand: {
+    height: 40,
+    width: 40,
     position: 'absolute',
-    top: '30px',
-    right: '-25px',
+    top: '35px',
+    right: '65px',
     display: 'none',
     color: theme.info.colors.text,
     '.is-aside.open &': {
@@ -118,7 +120,7 @@ const InfoHeader = props => {
       </Link>
       <h1 className={classes.title}>
         {config.infoTitle.replace(/ /g, '\u00a0')}
-        <small>{config.infoTitleNote}</small>
+        {config.infoTitleNote && <small>{config.infoTitleNote}</small>}
       </h1>
       <IconButton aria-label="Expand the box" className={classes.expand} onClick={expandOnClick} title="Expand the box">
         <ExpandMoreIcon />

@@ -1,12 +1,11 @@
 import React from 'react';
 import injectSheet from 'react-jss';
-import { MuiThemeProvider } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import withRoot from '../withRoot';
 
-import theme from '../styles/theme';
+import theme from '../styles/new-theme';
 import globals from '../styles/globals';
 
 import { setFontSizeIncrease, setIsWideScreen } from '../state/store';

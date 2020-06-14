@@ -1,7 +1,7 @@
 const colors = require('../../src/styles/colors');
 
 module.exports = {
-  siteTitle: 'Thomas Nguyen', // <title>
+  siteTitle: `Hi I'm Thomas Nguyen`, // <title>
   shortSiteTitle: 'Thomas Nguyen', // <title> ending for posts and pages
   siteDescription: 'A website by Thomas Nguyen',
   siteUrl: 'https://thmsngyn.com',

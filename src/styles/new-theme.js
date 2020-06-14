@@ -21,9 +21,8 @@ const theme = createMuiTheme({
       linesMargin: '20px'
     },
     fonts: {
-      unstyledFamily: `Arial`,
-      styledFamily: 'IBM Plex Serif',
-      styledFonts: '300,400,600'
+      unstyledFamily: `Cereal-Book`,
+      styledFamily: 'Cereal-Book'
     }
   },
   info: {
@@ -156,7 +155,7 @@ const theme = createMuiTheme({
     }
   },
   typography: {
-    fontFamily: `Arial, sans-serif`,
+    font: `Cereal-Book`,
     fontSize: 16
   }
 });

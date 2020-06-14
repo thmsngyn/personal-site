@@ -4,18 +4,18 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import LazyLoad from 'react-lazyload';
 
-const styles = (theme) => ({
+const styles = theme => ({
   listItem: {
     margin: '0 0 .7em 0',
     transition: 'height 1s',
     [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
-      margin: '0 0 1.5rem 0',
+      margin: '0 0 1.5rem 0'
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
       '.moving-featured &, .is-aside &': {
-        margin: '0 0 0 0',
-      },
-    },
+        margin: '0 0 0 0'
+      }
+    }
   },
   listLink: {
     display: 'flex',
@@ -29,10 +29,10 @@ const styles = (theme) => ({
       '&:hover': {
         color: theme.navigator.colors.postsListItemLinkHover,
         '& .pointer': {
-          borderRadius: '65% 75%',
-        },
-      },
-    },
+          borderRadius: '65% 75%'
+        }
+      }
+    }
   },
   listItemPointer: {
     position: 'relative',
@@ -45,12 +45,12 @@ const styles = (theme) => ({
     transition: 'all .5s',
     '& img': {
       width: '100%',
-      height: '100%',
+      height: '100%'
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
       marginRight: '.5em',
       width: '80px',
-      height: '80px',
+      height: '80px'
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
       marginRight: '.8em',
@@ -60,11 +60,12 @@ const styles = (theme) => ({
       transitionTimingFunction: 'ease',
       '.moving-featured &, .is-aside &': {
         width: '30px',
-        height: '30px',
-      },
-    },
+        height: '30px'
+      }
+    }
   },
   listItemText: {
+    font: 'Cereal-Book',
     margin: '0 0 0 1.5em',
     flexGrow: 1,
     display: 'flex',
@@ -77,15 +78,15 @@ const styles = (theme) => ({
       margin: 0,
       fontSize: `${theme.navigator.sizes.postsListItemH1Font}em`,
       [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
-        fontSize: `${theme.navigator.sizes.postsListItemH1Font * theme.navigator.sizes.fontIncraseForM}em`,
+        fontSize: `${theme.navigator.sizes.postsListItemH1Font * theme.navigator.sizes.fontIncraseForM}em`
       },
       [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
         fontSize: `${theme.navigator.sizes.postsListItemH1Font * theme.navigator.sizes.fontIncraseForL}em`,
         '.moving-featured &, .is-aside &': {
           fontSize: '1em',
-          fontWeight: 400,
-        },
-      },
+          fontWeight: 400
+        }
+      }
     },
     '& h2': {
       lineHeight: 1.2,
@@ -93,26 +94,26 @@ const styles = (theme) => ({
       fontSize: `${theme.navigator.sizes.postsListItemH2Font}em`,
       margin: '.3em 0 0 0',
       [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
-        fontSize: `${theme.navigator.sizes.postsListItemH2Font * theme.navigator.sizes.fontIncraseForM}em`,
+        fontSize: `${theme.navigator.sizes.postsListItemH2Font * theme.navigator.sizes.fontIncraseForM}em`
       },
       [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
         fontSize: `${theme.navigator.sizes.postsListItemH2Font * theme.navigator.sizes.fontIncraseForL}em`,
         '.moving-featured &, .is-aside &': {
-          display: 'none',
-        },
-      },
+          display: 'none'
+        }
+      }
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
       '.moving-featured &, .is-aside &': {
-        margin: '0 0 0 .5em',
-      },
-    },
-  },
+        margin: '0 0 0 .5em'
+      }
+    }
+  }
 });
 
 class ListItem extends React.Component {
   state = {
-    hidden: false,
+    hidden: false
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -166,7 +167,7 @@ ListItem.propTypes = {
   classes: PropTypes.object.isRequired,
   post: PropTypes.object.isRequired,
   linkOnClick: PropTypes.func.isRequired,
-  categoryFilter: PropTypes.string.isRequired,
+  categoryFilter: PropTypes.string.isRequired
 };
 
 export default injectSheet(styles)(ListItem);
