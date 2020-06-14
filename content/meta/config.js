@@ -6,7 +6,7 @@ module.exports = {
   siteDescription: 'A website by Thomas Nguyen',
   siteUrl: 'https://thmsngyn.com',
   pathPrefix: '',
-  siteImage: 'preview.jpg',
+  siteImage: 'preview.png',
   siteLanguage: 'en',
   // author
   authorName: 'Thomas Nguyen',

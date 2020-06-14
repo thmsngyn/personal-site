@@ -5,7 +5,7 @@ category: misc
 cover: hi.jpeg
 ---
 
-Hello! As a token of my appreciation, here's a nice quote for you.
+Hello! Thanks for visiting my site, as a token of my appreciation, here's a quote for you.
 
 > "The master has failed more times than the beginner has even tried."
 >
