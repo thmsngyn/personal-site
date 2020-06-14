@@ -1,9 +1,9 @@
 // This is a custom theme, for details go to http://forgatsby.greglobinski.com/customize-personal-blog-starter/
 
-import { createMuiTheme } from "@material-ui/core/styles";
-import Color from "color";
+import { createMuiTheme } from '@material-ui/core/styles';
+import Color from 'color';
 
-import colors from "./new-colors";
+import colors from './new-colors';
 
 const theme = createMuiTheme({
   base: {
@@ -18,12 +18,12 @@ const theme = createMuiTheme({
       lines: colors.gray
     },
     sizes: {
-      linesMargin: "20px"
+      linesMargin: '20px'
     },
     fonts: {
       unstyledFamily: `Arial`,
-      styledFamily: "IBM Plex Serif",
-      styledFonts: "300,400,600"
+      styledFamily: 'IBM Plex Serif',
+      styledFonts: '300,400,600'
     }
   },
   info: {
@@ -72,10 +72,10 @@ const theme = createMuiTheme({
       blockquoteFrame: colors.dark,
       link: colors.accent,
       linkHover: colors.dark,
-      fbCommentsColorscheme: "dark"
+      fbCommentsColorscheme: 'dark'
     },
     sizes: {
-      articleMaxWidth: "50em"
+      articleMaxWidth: '50em'
     },
     fonts: {
       title: {
@@ -148,11 +148,11 @@ const theme = createMuiTheme({
   },
   palette: {
     primary: {
-      main: "#709425"
+      main: '#f8aa94'
     },
-    type: "dark",
+    type: 'dark',
     action: {
-      hover: "rgba(0, 0, 0, 0.01)"
+      hover: 'rgba(0, 0, 0, 0.01)'
     }
   },
   typography: {

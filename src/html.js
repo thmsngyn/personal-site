@@ -1,5 +1,5 @@
 /* eslint  react/prop-types: 0 */
-import React from "react";
+import React from 'react';
 
 let stylesStr;
 if (process.env.NODE_ENV === `production`) {

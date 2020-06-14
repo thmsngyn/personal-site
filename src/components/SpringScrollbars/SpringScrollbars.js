@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { Scrollbars } from "react-custom-scrollbars";
-import PropTypes from "prop-types";
-import { SpringSystem, MathUtil } from "rebound";
-import { forceCheck } from "react-lazyload";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { Scrollbars } from 'react-custom-scrollbars';
+import PropTypes from 'prop-types';
+import { SpringSystem, MathUtil } from 'rebound';
+import { forceCheck } from 'react-lazyload';
+import { connect } from 'react-redux';
 
-import { setScrollToTop } from "../../state/store";
+import { setScrollToTop } from '../../state/store';
 
 class SpringScrollbars extends Component {
   constructor(props, ...rest) {
@@ -14,7 +14,7 @@ class SpringScrollbars extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.isNavigator && this.props.navigatorPosition !== "is-featured") {
+    if (this.props.isNavigator && this.props.navigatorPosition !== 'is-featured') {
       return;
     }
 
@@ -52,13 +52,7 @@ class SpringScrollbars extends Component {
   scrollTop(top) {
     const scrollTop = this.scrollbars.getScrollTop();
     const scrollHeight = this.scrollbars.getScrollHeight();
-    const val = MathUtil.mapValueInRange(
-      top,
-      0,
-      scrollHeight,
-      scrollHeight * 0.01,
-      scrollHeight * 0.99
-    );
+    const val = MathUtil.mapValueInRange(top, 0, scrollHeight, scrollHeight * 0.01, scrollHeight * 0.99);
     this.spring.setCurrentValue(scrollTop).setAtRest();
     this.spring.setEndValue(val);
   }
@@ -78,7 +72,7 @@ class SpringScrollbars extends Component {
         autoHide
         universal={true}
         onScroll={forceCheckOnScroll && forceCheck}
-        ref={comp => {
+        ref={(comp) => {
           this.scrollbars = comp;
         }}
       >
@@ -94,21 +88,18 @@ SpringScrollbars.propTypes = {
   setScrollToTop: PropTypes.func.isRequired,
   forceCheckOnScroll: PropTypes.bool,
   navigatorPosition: PropTypes.string.isRequired,
-  isNavigator: PropTypes.bool
+  isNavigator: PropTypes.bool,
 };
 
 const mapStateToProps = (state, ownProps) => {
   return {
     scrollToTop: state.scrollToTop,
-    navigatorPosition: state.navigatorPosition
+    navigatorPosition: state.navigatorPosition,
   };
 };
 
 const mapDispatchToProps = {
-  setScrollToTop
+  setScrollToTop,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SpringScrollbars);
+export default connect(mapStateToProps, mapDispatchToProps)(SpringScrollbars);
