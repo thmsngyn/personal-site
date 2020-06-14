@@ -1,25 +1,25 @@
-import React from "react";
-import PropTypes from "prop-types";
-import injectSheet from "react-jss";
-require("core-js/fn/array/find");
+import React from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
+require('core-js/fn/array/find');
 
-import asyncComponent from "../common/AsyncComponent/";
-import PostAuthor from "./PostAuthor";
-import PostComments from "./PostComments";
+import asyncComponent from '../common/AsyncComponent/';
+import PostAuthor from './PostAuthor';
+import PostComments from './PostComments';
 
 const styles = theme => ({
   footer: {
     color: theme.main.colors.footer,
     fontSize: `${theme.main.fonts.footer.size}em`,
     lineHeight: theme.main.fonts.footer.lineHeight,
-    "& p": {
+    '& p': {
       margin: 0
     }
   }
 });
 
 const PostShare = asyncComponent(() =>
-  import("./PostShare")
+  import('./PostShare')
     .then(module => {
       return module;
     })
@@ -29,7 +29,7 @@ const PostShare = asyncComponent(() =>
 const PostFooter = ({ classes, author, post, slug, facebook }) => {
   return (
     <footer className={classes.footer}>
-      <PostShare post={post} slug={slug} />
+      {/* <PostShare post={post} slug={slug} /> */}
       <PostAuthor author={author} />
       <PostComments post={post} slug={slug} facebook={facebook} />
     </footer>

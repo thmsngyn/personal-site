@@ -1,49 +1,53 @@
-import React from "react";
-import PropTypes from "prop-types";
-import injectSheet from "react-jss";
-import Button from "@material-ui/core/Button";
-import { navigateTo } from "gatsby-link";
-import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
+import React from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
+import Button from '@material-ui/core/Button';
+import { navigateTo } from 'gatsby-link';
+import { TextValidator, ValidatorForm } from 'react-material-ui-form-validator';
+import colors from '../../styles/colors';
 
 function encode(data) {
   return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
 }
 
 const styles = theme => ({
   submit: {
-    margin: "3em 0"
+    margin: '3em 0',
+    color: colors.white,
+    textTransform: 'none',
+    fontWeight: 700
     //width: "100%"
   },
   multilineInput: {
     lineHeight: 1.4,
-    fontSize: "1.2em"
+    fontSize: '1.2em'
   },
   singleLineInput: {
     lineHeight: 1.4,
-    fontSize: "1.2em",
+    fontSize: '1.2em',
     [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
-      width: "47%",
-      marginLeft: "3%",
-      "&:first-child": {
-        marginRight: "3%",
+      width: '47%',
+      marginLeft: '3%',
+      '&:first-child': {
+        marginRight: '3%',
         marginLeft: 0
       }
     }
   },
   submitError: {
-    background: "red",
-    color: "white"
+    background: 'red',
+    color: 'white'
   }
 });
 
 class ContactForm extends React.Component {
   state = {
-    name: "",
-    email: "",
-    message: "",
-    submitError: ""
+    name: '',
+    email: '',
+    message: '',
+    submitError: ''
   };
 
   handleChange = event => {
@@ -55,21 +59,21 @@ class ContactForm extends React.Component {
   };
 
   handleNetworkError = e => {
-    this.setState({ submitError: "There was a network error." });
+    this.setState({ submitError: 'There was a network error.' });
   };
 
   handleSubmit = e => {
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...this.state })
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'contact', ...this.state })
     })
       .then(() => {
-        console.log("Form submission success");
-        navigateTo("/success");
+        console.log('Form submission success');
+        navigateTo('/success');
       })
       .catch(error => {
-        console.error("Form submission error:", error);
+        console.error('Form submission error:', error);
         this.handleNetworkError();
       });
 
@@ -96,8 +100,8 @@ class ContactForm extends React.Component {
           label="Name"
           value={name}
           onChange={this.handleChange}
-          validators={["required"]}
-          errorMessages={["this field is required"]}
+          validators={['required']}
+          errorMessages={['this field is required']}
           fullWidth
           margin="normal"
           className={classes.singleLineInput}
@@ -108,8 +112,8 @@ class ContactForm extends React.Component {
           label="E-mail"
           value={email}
           onChange={this.handleChange}
-          validators={["required", "isEmail"]}
-          errorMessages={["this field is required", "email is not valid"]}
+          validators={['required', 'isEmail']}
+          errorMessages={['this field is required', 'email is not valid']}
           fullWidth
           margin="normal"
           className={classes.singleLineInput}
@@ -120,21 +124,15 @@ class ContactForm extends React.Component {
           label="Message"
           value={message}
           onChange={this.handleChange}
-          validators={["required"]}
-          errorMessages={["this field is required"]}
+          validators={['required']}
+          errorMessages={['this field is required']}
           multiline
           fullWidth
           margin="normal"
           className={classes.multilineInput}
         />
-        <input name="bot-field" style={{ display: "none" }} />
-        <Button
-          variant="raised"
-          color="primary"
-          size="large"
-          type="submit"
-          className={classes.submit}
-        >
+        <input name="bot-field" style={{ display: 'none' }} />
+        <Button variant="raised" color="primary" size="large" type="submit" className={classes.submit}>
           Send
         </Button>
       </ValidatorForm>

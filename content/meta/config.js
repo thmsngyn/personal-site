@@ -1,32 +1,31 @@
-const colors = require("../../src/styles/colors");
+const colors = require('../../src/styles/colors');
 
 module.exports = {
-  siteTitle: "PersonalBlog - a blog starter for GatsbyJS", // <title>
-  shortSiteTitle: "PersonalBlog GatsbyJS Starter", // <title> ending for posts and pages
-  siteDescription: "PersonalBlog is a GatsbyJS starter.",
-  siteUrl: "https://gatsby-starter-personal-blog.greglobinski.com",
-  pathPrefix: "",
-  siteImage: "preview.jpg",
-  siteLanguage: "en",
+  siteTitle: 'Thomas Nguyen', // <title>
+  shortSiteTitle: 'Thomas Nguyen', // <title> ending for posts and pages
+  siteDescription: 'A website by Thomas Nguyen',
+  siteUrl: 'https://thmsngyn.com',
+  pathPrefix: '',
+  siteImage: 'preview.jpg',
+  siteLanguage: 'en',
   // author
-  authorName: "greg lobinski",
-  authorTwitterAccount: "greglobinski",
+  authorName: 'Thomas Nguyen',
+  // authorTwitterAccount: '',
   // info
-  infoTitle: "greg lobinski",
-  infoTitleNote: "personal blog",
+  infoTitle: 'Thomas Nguyen',
+  // infoTitleNote: 'Personal site',
   // manifest.json
-  manifestName: "PersonalBlog - a blog starter for GatsbyJS",
-  manifestShortName: "PersonalBlog", // max 12 characters
-  manifestStartUrl: "/",
+  manifestName: 'A website by Thomas Nguyen',
+  manifestShortName: 'ThomasNguyen', // max 12 characters
+  manifestStartUrl: '/',
   manifestBackgroundColor: colors.background,
   manifestThemeColor: colors.background,
-  manifestDisplay: "standalone",
+  manifestDisplay: 'standalone',
   // contact
-  contactEmail: "john@doe.com",
+  contactEmail: 'tomtronwin@gmail.com',
   // social
   authorSocialLinks: [
-    { name: "github", url: "https://github.com/greglobinski" },
-    { name: "twitter", url: "https://twitter.com/greglobinski" },
-    { name: "facebook", url: "https://facebook.com/greglobinski" }
+    { name: 'github', url: 'https://github.com/thmsngyn' },
+    { name: 'linkedin', url: 'https://www.linkedin.com/in/thmsngyn/' }
   ]
 };

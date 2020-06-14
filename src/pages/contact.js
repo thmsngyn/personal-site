@@ -1,14 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-import injectSheet from "react-jss";
-import Obfuscate from "react-obfuscate";
+import React from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
+import Obfuscate from 'react-obfuscate';
 
-import Main from "../components/Main";
-import Article from "../components/Main/Article";
-import PageHeader from "../components/Page/PageHeader";
-import Content from "../components/Main/Content";
-import Form from "../components/ContactForm";
-import config from "../../content/meta/config";
+import Main from '../components/Main';
+import Article from '../components/Main/Article';
+import PageHeader from '../components/Page/PageHeader';
+import Content from '../components/Main/Content';
+import Form from '../components/ContactForm';
+import config from '../../content/meta/config';
 
 const styles = theme => ({});
 
@@ -17,9 +17,15 @@ const Contact = () => {
     <Main>
       <Article>
         <PageHeader title="Contact" />
+        {/* <Content>
+          Feel free to contact me by email: <Obfuscate email={config.contactEmail} /> or use the form below.
+        </Content> */}
         <Content>
-          Feel free to contact me by email: <Obfuscate email={config.contactEmail} /> or use the
-          form below.
+          Please send me a message through{' '}
+          <a target="_blank" href="https://www.linkedin.com/in/thmsngyn/">
+            LinkedIn
+          </a>{' '}
+          or use the form below.
         </Content>
         <Form />
       </Article>
