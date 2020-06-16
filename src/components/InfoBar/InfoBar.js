@@ -78,8 +78,10 @@ class InfoBar extends React.Component {
             {config.infoTitle}
             {config.infoTitleNote && <small>{config.infoTitleNote}</small>}
           </h3>
+          <div style={{ marginLeft: 'auto' }}>
+            <TopMenu pages={pages} homeLinkOnClick={this.homeLinkOnClick} pageLinkOnClick={this.pageLinkOnClick} />
+          </div>
         </div>
-        <TopMenu pages={pages} homeLinkOnClick={this.homeLinkOnClick} pageLinkOnClick={this.pageLinkOnClick} />
       </aside>
     );
   }

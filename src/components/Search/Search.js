@@ -106,14 +106,14 @@ const Search = props => {
         <InstantSearch appId={algolia.appId} apiKey={algolia.searchOnlyApiKey} indexName={algolia.indexName}>
           <SearchBox translations={{ placeholder: '' }} />
           <Stats style={{ marginBottom: 0 }} />
-          <div className={classes.algoliaRow}>
+          {/* <div className={classes.algoliaRow}>
             <div>Search by</div>
             <div>
               <a className={classes.mark} href="https://www.algolia.com" rel="noopener noreferrer" target="_blank">
                 <AlgoliaIcon />
               </a>
             </div>
-          </div>
+          </div> */}
           <Hits hitComponent={Hit} />
           <Pagination />
         </InstantSearch>
