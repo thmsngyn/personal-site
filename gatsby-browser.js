@@ -22,8 +22,10 @@ exports.replaceRouterComponent = ({ history }) => {
   );
 
   ConnectedRouterWrapper.propTypes = {
-    children: PropTypes.object.isRequired,
+    children: PropTypes.object.isRequired
   };
 
   return ConnectedRouterWrapper;
 };
+
+export const onServiceWorkerUpdateReady = () => window.location.reload();
