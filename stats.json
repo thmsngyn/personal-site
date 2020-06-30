@@ -5,8 +5,8 @@
       "component---src-pages-index-js-dd4a84dfad9debe80ef0.js.map"
     ],
     "path---": [
-      "path----3675c4f14d8733130309.js",
-      "path----3675c4f14d8733130309.js.map"
+      "path----1444f7eeae1702d172d7.js",
+      "path----1444f7eeae1702d172d7.js.map"
     ],
     "component---src-pages-contact-js": [
       "component---src-pages-contact-js-57912d4c59b18381b5a7.js",
@@ -21,8 +21,12 @@
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js.map"
     ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-eb395f0ec4efcc773328.js",
-      "component---src-layouts-index-js-eb395f0ec4efcc773328.js.map"
+      "component---src-layouts-index-js-4ed7b33b036d60b3e3a8.js",
+      "component---src-layouts-index-js-4ed7b33b036d60b3e3a8.js.map"
+    ],
+    "path---between-the-world-and-me": [
+      "path---between-the-world-and-me-3704e207bfec85b0e1b8.js",
+      "path---between-the-world-and-me-3704e207bfec85b0e1b8.js.map"
     ],
     "path---index": [
       "path---index-206ac74de0d3aab26f03.js",
@@ -59,9 +63,9 @@
       "path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js.map"
     ],
     "app": [
-      "app-dbc3ff4e8bb2db8bbc65.js",
+      "app-01d730c7103a62f2e97c.js",
       "build-js-styles.css",
-      "app-dbc3ff4e8bb2db8bbc65.js.map",
+      "app-01d730c7103a62f2e97c.js.map",
       "build-js-styles.css.map"
     ],
     "component---src-templates-page-template-js": [
